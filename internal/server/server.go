@@ -74,7 +74,7 @@ func buildGroupMessage(groupIds []int64, info *MediaInfo) []*llonebot.SendGroupM
 	}
 
 	msg := buildMessage(info)
-	result := make([]*llonebot.SendGroupMsgReq, 0, len(groupIds))
+	result := make([]*llonebot.SendGroupMsgReq, len(groupIds))
 	for i, groupId := range groupIds {
 		result[i] = &llonebot.SendGroupMsgReq{
 			GroupId: groupId,
@@ -92,7 +92,7 @@ func buildPrivateMessage(userIds []int64, info *MediaInfo) []*llonebot.SendPriva
 	}
 
 	msg := buildMessage(info)
-	result := make([]*llonebot.SendPrivateMsgReq, 0, len(userIds))
+	result := make([]*llonebot.SendPrivateMsgReq, len(userIds))
 	for i, groupId := range userIds {
 		result[i] = &llonebot.SendPrivateMsgReq{
 			UserId:  groupId,
@@ -104,11 +104,6 @@ func buildPrivateMessage(userIds []int64, info *MediaInfo) []*llonebot.SendPriva
 }
 
 func buildMessage(info *MediaInfo) []llonebot.Message {
-	if info == nil {
-		logger.Error("buildMessage: mediaInfo is nil")
-		return nil
-	}
-
 	return []llonebot.Message{
 		llonebot.NewTextMsg("✨ 瞢闇影视更新通知 ✨"),
 		llonebot.NewImageMsg(info.Image),
