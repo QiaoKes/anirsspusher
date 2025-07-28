@@ -108,7 +108,7 @@ func buildMessage(info *MediaInfo) []llonebot.Message {
 		llonebot.NewTextMsg("✨ 瞢闇影视更新通知 ✨"),
 		llonebot.NewImageMsg(info.Image),
 		llonebot.NewTextMsg("🎬 标题: " + info.Title),
-		llonebot.NewTextMsg("📺 剧集: " + fmt.Sprintf("S%s-E%s %s", info.Season, info.Episode, info.TheMovieDBName)),
+		llonebot.NewTextMsg("📺 剧集: " + fmt.Sprintf("S%s-E%s %s", info.Season, info.Episode, info.BGMEpisodeTitle)),
 		llonebot.NewTextMsg("⭐ 评分: " + info.Score),
 		llonebot.NewTextMsg("🔗 TMDB链接: " + info.TMDBUrl),
 		llonebot.NewTextMsg("🔗 BGM链接: " + info.BGMUrl),
