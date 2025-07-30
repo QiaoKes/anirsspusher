@@ -48,8 +48,7 @@ func processAniRssCallback(c *gin.Context) {
 		_, err := llOneBotClient.SendGroupMessage(req)
 		if err != nil {
 			logger.Errorf("processAniRssCallback: send group message failed: %v", err)
-			c.JSON(500, BaseResponse{Code: "Error", Message: "Failed to send message"})
-			return
+			continue
 		}
 	}
 
@@ -58,8 +57,7 @@ func processAniRssCallback(c *gin.Context) {
 		_, err := llOneBotClient.SendPrivateMessage(req)
 		if err != nil {
 			logger.Errorf("processAniRssCallback: send private message failed: %v", err)
-			c.JSON(500, BaseResponse{Code: "Error", Message: "Failed to send message"})
-			return
+			continue
 		}
 	}
 
